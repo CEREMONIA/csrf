@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Attack Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .button {
+            background-color: darkblue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSRF 공격 페이지</h1>
+    <form method="POST" action="http://localhost/csrf_protection.php">
+        <input type="hidden" name="username" value="Attacker's Name"> <!-- 공격자가 원하는 이름 -->
+        <input type="hidden" name="csrf_token" value="INVALID_TOKEN"> <!-- 잘못된 CSRF 토큰 -->
+        <input type="submit" class="button" value="공격하기">
+    </form>
+</body>
+</html>
